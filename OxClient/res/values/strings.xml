@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">OxClient</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="Login"></string>
+    <string name="OxRotorController">OxRotor Controller</string>
+    <string name="usname">Username:</string>
+    <string name="pword">Password:</string>
+    <string name="login">Login</string>
+    <string name="logo">logo</string>
+    <string name="mancrtl">OxRotor Manual Control</string>
+    <string name="dir">Direction</string>
+    <string name="alt">Altitude</string>
+    <string name="north">North</string>
+    <string name="south">South</string>
+    <string name="west">West</string>
+    <string name="east">East</string>
+    <string name="Image">img</string>
+    <string name="title_activity_control">Control</string>
+
+</resources>
