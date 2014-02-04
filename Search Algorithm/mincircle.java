@@ -60,6 +60,16 @@ public class mincircle {
 		System.out.println("Area is: " + c.getArea());
 		System.out.println("Diameter is: " + c.getDiameter());
 		System.out.println("Radius is: " + c.getRadius());
-		
+		/**
+		 * Draw on Google Maps Code snippet
+		 * 
+			  CircleOptions circle = new CircleOptions()
+              		.center(c.getCenter())   //set center
+              		.radius(c.getRadius())   //set radius in meters
+              		.fillColor(Color.TRANSPARENT)  //default
+              		.strokeColor(0x10000000)
+              		.strokeWidth(5);
+              myCircle = googleMap.addCircle(circle);
+		 */
 	}
 }
