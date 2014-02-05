@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#000000"
+	tools:context=".MainMenu" >
+    
+   <Button
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="E"
+        android:textSize="20sp" 
+        android:textColor="#000000"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/map"
+        android:id="@+id/eButton"
+        android:layout_marginRight="100dp" />
+   
+   <Button
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="N"
+        android:textSize="20sp" 
+        android:textColor="#000000"
+        android:layout_above="@+id/eButton"
+        android:layout_toLeftOf="@+id/eButton"
+        android:id="@+id/nButton" />
+   
+   <Button
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="W"
+        android:textSize="20sp" 
+        android:textColor="#000000"
+        android:layout_below="@+id/nButton"
+        android:layout_toLeftOf="@+id/nButton"
+        android:id="@+id/wButton" />
+   
+   <Button
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="S"
+        android:textSize="20sp" 
+        android:textColor="#000000"
+        android:layout_below="@+id/eButton"
+        android:layout_toLeftOf="@+id/eButton"
+        android:id="@+id/sButton" />
+   
+   <TextView 
+        android:text="Engines"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:id="@+id/text"/>
+   
+   <ToggleButton
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:text="Engines"
+        android:textSize="20sp" 
+        android:textColor="#000000"
+        android:id="@+id/engines"
+        android:layout_below="@+id/text" />
+    
+	<fragment 
+		android:id="@+id/map"
+		android:layout_width="800dp"
+		android:layout_height="700dp"
+		android:layout_alignParentRight="true"
+		android:layout_centerVertical="true"
+		android:layout_marginRight="25dp"
+		android:name="com.google.android.gms.maps.MapFragment"/>
+   
+</RelativeLayout>

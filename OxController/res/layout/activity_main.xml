@@ -1,0 +1,73 @@
+<!-- We use a relative layout, for efficiency and easy alginment between objects. -->
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".MainActivity" >
+
+    <!-- This is the login button, at the bottom of the screen. -->    
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="20sp" 
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:id="@+id/loginButton" />
+    
+    <!-- Working from the bottom up, this is the password field. -->
+    <EditText        
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:hint="Password"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:gravity="bottom"
+        android:inputType="textPassword"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/loginButton"
+        android:id="@+id/passText" />
+    
+    <!-- Next, the username field. -->
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:hint="Username"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:inputType="textPersonName"
+        android:gravity="bottom"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/passText"        
+        android:id="@+id/userText" />
+    
+    <!-- The "OxController" text field. -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="100sp"
+        android:layout_centerHorizontal="true"
+        android:text="OxController"
+        android:gravity="bottom|center"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/userText"        
+        android:id="@+id/oxText" />
+    
+    <!-- The logo. -->
+    <ImageView
+        android:layout_above="@+id/oxText"
+        android:layout_centerHorizontal="true"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/cerberus_logo"
+        android:contentDescription="Logo" />
+
+</RelativeLayout>

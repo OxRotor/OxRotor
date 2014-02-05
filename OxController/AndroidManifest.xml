@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.usna.oxcontroller"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!--
+           The following two permissions are not required to use
+		     Google Maps Android API v2, but are recommended.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/cerberus_logo"
+        android:label="@string/app_name"
+        android:screenOrientation="landscape"
+        android:configChanges="keyboard|keyboardHidden|orientation"
+        android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="edu.usna.oxcontroller.MainActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="edu.usna.oxcontroller.MainMenu"
+            android:label="@string/title_activity_main_menu"
+            android:parentActivityName="edu.usna.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.usna.oxcontroller" />
+        </activity>
+        <activity
+            android:name="edu.usna.oxcontroller.ManualActivity"
+            android:label="@string/title_activity_manual"
+            android:parentActivityName="edu.usna.activity_main"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.usna.activity_main" />
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyB-W-elv7lNBsh6vGcK7mRPb1Nveb9HbbI" />
+
+        <activity
+            android:name="edu.usna.oxcontroller.AutoActivity"
+            android:label="@string/title_activity_auto"
+            android:parentActivityName="edu.usna.activity_main_menu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.usna.activity_main_menu" />
+        </activity>
+    </application>
+
+</manifest>
