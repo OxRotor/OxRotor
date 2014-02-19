@@ -44,11 +44,24 @@ public class mincircle {
 		}
 		return sec;
 	}
+	private static Point[] SER(Circle c){
+		Point[] answer = new Point[2];
+		double radius = c.getRadius();
+		double centerX = c.getCenter().getX();
+		double centerY = c.getCenter().getY();
+		
+		Point upperRight = new Point(centerX + radius, centerY + radius);
+		Point lowerLeft = new Point(centerX - radius, centerY - radius);
+		
+		answer[0] = upperRight;answer[1] = lowerLeft;
+		
+		return answer;	
+	}
 	public static void main(String [] args){
-		Point one = new Point(3,0);
-		Point two = new Point(3,1);
-		Point three = new Point(2,0);
-		Point four = new Point(4,0);
+		Point one = new Point(0,3);
+		Point two = new Point(0,-3);
+		Point three = new Point(1,1);
+		Point four = new Point(-1,1);
 		Point[] points = new Point[4];
 		points[0] = one; points[1] = two;points[2] = three;points[3] = four;
 		int size = points.length;
@@ -60,6 +73,12 @@ public class mincircle {
 		System.out.println("Area is: " + c.getArea());
 		System.out.println("Diameter is: " + c.getDiameter());
 		System.out.println("Radius is: " + c.getRadius());
+		
+		Point[] rectangle = SER(c);
+		System.out.println("Upper Right is: " + rectangle[0]);
+		System.out.println("Lower Left is: " + rectangle[1]);
+		go2point g = new go2point(rectangle[0],rectangle[1]);
+		System.out.println("Distance in meters: " + g.distance());
 		/**
 		 * Draw on Google Maps Code snippet
 		 * 

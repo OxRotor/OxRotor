@@ -2,16 +2,20 @@ import java.math.*;
 
 public class go2point {
 	private final int earth = 6371;
+	Point current;
+	Point destination;
 	private double currentLat;
 	private double currentLong;
 	private double destLat;
 	private double destLong;
 	
-	public go2point(double cla, double clo,double dla,double dlo){
-		currentLat = cla;
-		currentLong = clo;
-		destLat = dla;
-		destLong = dlo;
+	public go2point(Point current,Point destination){
+		this.current = current;
+		this.destination = destination;
+		currentLat = current.getX();
+		currentLong = current.getY();
+		destLat = destination.getX();
+		destLong = destination.getY();
 	}
 	/**
 	 * ‘Haversine’ formula to calculate distance in KM
@@ -32,7 +36,8 @@ public class go2point {
 		return distance; //in KM
 	}
 	/**
-	 * Calculates Bearing in Degrees
+	 * Calculates Relative Bearing in Degrees
+	 * Rounds the number to 4 signficant figures
 	 * @return
 	 */
 	public double bearing(){
@@ -45,13 +50,54 @@ public class go2point {
 		        Math.sin(lat1)*Math.cos(lat2)*Math.cos(diffLong);
 		double brng = Math.atan2(y, x);
 		
-		return Math.toDegrees(brng); 
+		double deg = Math.toDegrees(brng);
+		//In case the relative bearing is negative, just add 360
+		if(deg < 0){
+			deg = deg + 360;
+		}
+		
+		//Rounds the number to 4 significant figures
+		double figs = Math.pow(10, Math.ceil(Math.log10(Math.abs(deg))) - 4);
+	    return Math.round(deg/figs)*figs;
 	}
+	/** THIS DOES NOT WORK!
+	 * 
+	 * The starting point should be the current lat/long
+	 * The final way point should be the destination lat/long
+	 * @param interval The interval period(in kilometers)
+	 * @return The number of intervals
+	 */
+	public int createWayPoints(double interval){
+		double dist = distance();
+		int numWayPoints = (int)(dist / interval);
+		double bearing = bearing();
+		
+		Point[] wayPoints = new Point[numWayPoints];
+		wayPoints[0] = current;
+		wayPoints[numWayPoints-1] = destination;
+		Point temp = current;
+		
+		//This for loop is the problem child
+		for(int i = 1;i<numWayPoints-1;i++){
+			wayPoints[i] = new Point((temp.getX()+(interval*Math.sin(bearing))),(temp.getY()+(interval*Math.cos(bearing))));
+			temp = wayPoints[i];
+		}
+		//end problem child
+		
+		for(int i = 0;i<numWayPoints;i++){
+			System.out.println("Waypoint " + (i+1) + " is : " + wayPoints[i]);
+		}
+		return numWayPoints;
+	}
+	
 	public static void main(String[] args){
-		go2point g = new go2point(38.898556,-77.037852,38.897147,-77.043934);
-		go2point ex = new go2point(35,45,35,135);
+		Point one = new Point(3,3);
+		Point two = new Point(-3,-3);
+		go2point g = new go2point(one,two);
 		
 		System.out.println(g.distance());
-		System.out.println(ex.bearing());
+		System.out.println(g.bearing());
+		System.out.println(g.createWayPoints(300));
 	}
+	
 }

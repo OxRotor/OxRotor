@@ -79,13 +79,14 @@ public class Point
     // Calcualte the distance between two points
     public double distance(Point point)
     {
-    	/*
+    	
 		double dx = x - point.x;
 		double dy = y - point.y;
 		return Math.sqrt(dx*dx + dy*dy);
-		*/
+	
     	
     	// This is a test equation that picks points based on their bearing
+    	/*
     	double earthRadius = 6371;
     	double diffLat = Math.toRadians(point.x-x);
 		double diffLong = Math.toRadians(point.y-y);
@@ -98,7 +99,9 @@ public class Point
 		double c = 2 * Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
 		double distance = earthRadius * c;
 		
-		return distance/1000; //in meters
+		return distance*1000; //in kilometers
+		*/
+		
     }
     // Calcualte the square of the distance between two points
     public double distance2(Point point)
