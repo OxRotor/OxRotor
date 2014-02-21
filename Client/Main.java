@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.net.Socket;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Main {
         // The IP and port of the server process
@@ -9,9 +11,9 @@ public class Main {
         public static void main(String[] args) throws IOException {
                 try {
                         // Establishes a socket and spawns a child thread
-                        Socket s = new Socket(HOST, PORT);
-                        System.out.println("You connected to " + HOST);
-                        Client client = new Client(s);
+                        Scanner in = new Scanner(System.in);
+                        PrintWriter out = new PrintWriter(System.out);
+                        Client client = new Client("", "", in, out);
                         Thread t = new Thread(client);
                         t.start();
                 } catch (Exception e) {
