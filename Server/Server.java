@@ -27,6 +27,8 @@ public class Server {
                                         Thread t2 = new Thread(c2);
                                         t1.start();
                                         t2.start();
+                                        s = ss.accept();
+                                        System.out.println("Client connected from " + s.getLocalAddress().getHostName());
                                 }   
     
                                 android1 = s;
