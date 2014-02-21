@@ -9,24 +9,35 @@ public class CommThread implements Runnable {
         PrintWriter out;                // output destination
         int option;
     
-        /** Creates a CommThread 
+        /** Creates a CommThread
           *
           * @param s the socket to the server
-          * @param option whether this thread is receiving or sending
+          * @param in the source of input
           */
-        CommThread(Socket s, int option) {
+        CommThread(Socket s, Scanner in) {
                 this.s = s;
-                this.option = option;
+                this.option = 0;
+                this.in = in; 
         }
 
-        /** Relays information to and from server **/ 
+        /** Creates a CommThread
+          *
+          * @param s the socket to the server
+          * @param out the destination for output
+          */
+        CommThread(Socket s, PrintWriter out) {
+                this.s = s;
+                this.option = 1;
+                this.out = out;
+        }
+
+        /** Relays information to and from server **/
         @Override
         public void run() {
-                try {   
+                try {
                         if (option == 0) {
-                                in = new Scanner(System.in);
                                 out = new PrintWriter(s.getOutputStream());
-                                
+    
                                 while (true) {
                                         // send info if present
                                         if (in.hasNext()) {
@@ -36,8 +47,7 @@ public class CommThread implements Runnable {
                                 }
                         } else if (option == 1) {
                                 in = new Scanner(s.getInputStream());
-                                out = new PrintWriter(System.out);
-                        
+
                                 while (true) {
                                         // print info if present
                                         if (in.hasNext()) {
