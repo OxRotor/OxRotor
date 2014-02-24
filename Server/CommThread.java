@@ -38,6 +38,7 @@ public class CommThread implements Runnable {
 			out = new PrintWriter(s2.getOutputStream());
 			out.println("Your device pair has not been properly verified.");
 			out.println("Please retry to connect to the other device.");
+			out.flush();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
