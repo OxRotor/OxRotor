@@ -63,10 +63,16 @@ public class CircleCalc
 		LatLng ll = new LatLng(p.getX(), p.getY());
 		return ll;
 	}
+	public Double getX(){
+		return p.getX();
+	}
+	public Double getY(){
+		return p.getY();
+	}
 	// Get the radius
 	public double getRadius()
 	{
-		return 6371*18*r;
+		return r;
 	}
 	// Set the center
 	public void setCenter(PointCalc center)

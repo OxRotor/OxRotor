@@ -36,17 +36,18 @@ public class MainActivity extends Activity implements OnClickListener {
    
    @Override
    public void onClick(View v) {
-       if(v == login){
-           if(userText.getText().toString().equals("Pedro") && passText.getText().toString().equals("posse")){
+       //if(v == login){
+           //if(userText.getText().toString().equals("Pedro") && passText.getText().toString().equals("posse")){
               Intent intent = new Intent(getBaseContext(), MainMenu.class);
               intent.putExtra("username", userText.getText().toString());
               startActivity(intent);
-           }
+           /*}
            else {
               toast = Toast.makeText(getBaseContext(), "Invalid Credentials", Toast.LENGTH_LONG);
               toast.show();
-           }           
-       } 
+           }   
+           */        
+       //} 
    }
 
 }
