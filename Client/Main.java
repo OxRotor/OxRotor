@@ -13,7 +13,7 @@ public class Main {
 			// Establishes a socket and spawns a child thread
 			Scanner in = new Scanner(System.in);
 			PrintWriter out = new PrintWriter(System.out);
-			Client client = new Client("capstone", "capstone", in, out);
+			Client client = new Client("capstone", "capstone", "2", "1", in, out);
 			Thread t = new Thread(client);
 			t.start();
 		} catch (Exception e) {
