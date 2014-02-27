@@ -8,20 +8,24 @@ public class CommThread implements Runnable {
 	Scanner in;			// input source
 	PrintWriter out;		// output destination
 	int option;
-	String un, pw;			// username and password
+	String un, pw, myID, desiredID;	// username and password
 	
 	/** Creates a CommThread
 	  *
 	  * @param un the username
 	  * @param pw the password
+	  * @param myID the current device ID
+	  * @param desiredID the ID of the target device
 	  * @param s the socket to the server
 	  * @param in the source of input
 	  */
-	CommThread(String un, String pw, Socket s, Scanner in) {
+	CommThread(String un, String pw, String myID, String desiredID, Socket s, Scanner in) {
 		this.s = s;
 		this.in = in;
 		this.un = un;
 		this.pw = pw;
+		this.myID = myID;
+		this.desiredID = desiredID;
 		option = 0;
 	}
 
@@ -44,6 +48,8 @@ public class CommThread implements Runnable {
 				out = new PrintWriter(s.getOutputStream());
 				out.println(un);
 				out.println(pw);
+				out.println(myID);
+				out.println(desiredID);
 				out.flush();
 				
 				while (true) {
